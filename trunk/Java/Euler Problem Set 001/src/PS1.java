@@ -12,11 +12,12 @@
 public class PS1 {
 
 	public static void main(String[] args) {
+		int target = 9999;
 		int sum = 0;
 		
 		long start = System.nanoTime();
 		//brute force method for calculating the summation
-		for(int i=1; i < 1000; i++)
+		for(int i=1; i <= target; i++)
 			if(i % 3 == 0 || i % 5 == 0)
 				sum += i;
 		
@@ -25,18 +26,18 @@ public class PS1 {
 		
 		start = System.nanoTime();
 		sum = 0;
-		for(int i = 3; i < 1000; i+=3)
+		for(int i = 3; i <= target; i+=3)
 			sum+=i;
-		for(int i = 5; i < 1000; i+=5)
+		for(int i = 5; i <= target; i+=5)
 			if(i % 3 != 0)
 				sum+=i;
 		stop = System.nanoTime();
 		System.out.println(sum + " " + (stop - start) + "ns");
 		
 		//a more elegant solution to avoid overflow in larger sets
-		int itemsInA = 999/3;
-		int itemsInB = 999/5;
-		int overlap = 999/15;
+		int itemsInA = target/3;
+		int itemsInB = target/5;
+		int overlap = target/15;
 		sum = 0;
 		
 		start = System.nanoTime();
@@ -47,8 +48,17 @@ public class PS1 {
 		for(int i = 1; i<= overlap; i++)
 			sum -= i*15;
 		stop = System.nanoTime();
-		
 		System.out.println(sum + " " + (stop-start) + "ns");
+		
+		//fastest and best approach
+		sum = 0;
+		start = System.nanoTime();
+		int totalA = 3*(itemsInA * (itemsInA + 1))/2; 
+		int totalB = 5*(itemsInB*(itemsInB+1))/2;
+		int totalC = 15*(overlap*(overlap+1))/2;
+		sum = totalA + totalB - totalC;
+		
+		System.out.println(sum + " " + (System.nanoTime() - start) + "ns");
 	}
 
 }
