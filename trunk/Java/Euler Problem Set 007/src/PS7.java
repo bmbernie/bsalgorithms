@@ -1,4 +1,6 @@
 /*
+ * Author: Brandon Bernie 
+ * 
  * Problem 7
  * 
  * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
@@ -75,7 +77,6 @@ public class PS7 {
 	}
 	
     public static boolean isPrime(long n) {
-    
         // 2 is the smallest prime
         if (n <= 2)
             return n == 2;
@@ -92,6 +93,4 @@ public class PS7 {
          
         return true;
     }
-
-	
 }
