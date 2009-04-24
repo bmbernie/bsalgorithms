@@ -28,11 +28,22 @@ public class PS3 {
 	}
 	
 	public static boolean isPrime(long n) {
-		for (long i = 3; (i*i) <= n; i += 2)
-			if (n % i == 0) 
-				return(false);
-		
-		return true;
-	}
+        
+		// 2 is the smallest prime
+        if (n <= 2)
+            return n == 2;
+
+        // even numbers other than 2 are not prime
+        if (n % 2 == 0) 
+            return false;
+       
+        // check odd divisors from 3
+        // to the square root of n
+        for (int i = 3, end = (int)Math.sqrt(n); i <= end; i += 2)
+            if (n % i == 0) 
+                return false;
+         
+        return true;
+    }
 
 }
