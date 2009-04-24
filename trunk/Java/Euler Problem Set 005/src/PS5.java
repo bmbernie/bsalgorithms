@@ -28,7 +28,7 @@ public class PS5 {
 		System.out.println((stop - start) + " ms");
 		
 		start = System.nanoTime();
-		Vector v = getPrimes(20);
+		Vector<Long> v = getPrimes(20);
 		Long[] primes = new Long[v.size()];
 		v.toArray(primes);	
 		int[] exp = new int[primes.length];
