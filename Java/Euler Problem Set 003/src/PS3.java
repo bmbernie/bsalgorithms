@@ -15,9 +15,8 @@ public class PS3 {
 		
 		long number = 600851475143L;
 		long max = 0;
-		long x=0;
 		long start = System.currentTimeMillis();
-		for(x=3;(x*x) <= number; x+=2)
+		for(long x=3, end = (int)Math.sqrt(number); x <= end; x+=2)
 			if(number % x == 0)
 				if(isPrime(x))
 					if(x>max)
