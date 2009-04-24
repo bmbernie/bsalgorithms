@@ -12,7 +12,6 @@
 public class PS4 {
 
 	public static void main(String[] args) {
-		
 		long start = System.currentTimeMillis();
 		int test=0;
 		int comp=0;
