@@ -19,8 +19,7 @@ public class PS7 {
 			number+=2;
 			if(isPrime(number))
 				counter++;
-			
-		}while(counter < 9999);
+		}while(counter < 10001);
 		long stop = System.currentTimeMillis();
 		System.out.println(number + " " + (stop - start) + " ms");
 		
@@ -37,9 +36,9 @@ public class PS7 {
 			return 5;
 		if(n == 4)
 			return 7;
+		
 		long i = 4;
 		long p = 7;
-		
 		while(true){
 			if(isPrime(p+=4))
 				i++;
