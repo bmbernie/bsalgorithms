@@ -16,7 +16,6 @@ public class PS6 {
 	public static void main(String[] args) {
 		long sumOfSquares=0;
 		long squareOfSums=0;
-		
 		long start = System.nanoTime();
 		//sum of squares
 		for(int i = 1; i <= 100; i++)
@@ -27,7 +26,6 @@ public class PS6 {
 			squareOfSums += i;
 		squareOfSums *= squareOfSums;
 		long stop = System.nanoTime();
-		
 		System.out.println(squareOfSums - sumOfSquares + " " + (stop - start) + " ns");
 		
 		start = System.nanoTime();
