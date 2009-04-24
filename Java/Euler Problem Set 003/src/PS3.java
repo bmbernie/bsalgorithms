@@ -27,8 +27,7 @@ public class PS3 {
 		System.out.println(max + " " + (stop-start) + " ms");
 	}
 	
-	public static boolean isPrime(long n) {
-        
+	public static boolean isPrime(long n) {    
 		// 2 is the smallest prime
         if (n <= 2)
             return n == 2;
@@ -45,5 +44,4 @@ public class PS3 {
          
         return true;
     }
-
 }
