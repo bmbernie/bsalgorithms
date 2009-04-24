@@ -30,11 +30,11 @@ public class PS3 {
 		// 2 is the smallest prime
         if (n <= 2)
             return n == 2;
-
+        
         // even numbers other than 2 are not prime
         if (n % 2 == 0) 
             return false;
-       
+      
         // check odd divisors from 3
         // to the square root of n
         for (int i = 3, end = (int)Math.sqrt(n); i <= end; i += 2)
