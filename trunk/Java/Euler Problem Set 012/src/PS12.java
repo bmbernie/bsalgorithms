@@ -27,22 +27,22 @@ public class PS12 {
 
 	public static void main(String[] args) {
 		long triangle = 0;
-		int   counter = 1;
-		int   divisors = 2;
-		int   trackrecord = 0;
-		
-		while(divisors < 500){
+		int counter = 1;
+		int divisors = 2;
+		int trackrecord = 0;
+		long start = System.currentTimeMillis();
+		while (divisors < 500) {
 			divisors = 2;
 			triangle += counter;
-			
-			for(int i = 2; i <= Math.sqrt(triangle); i++)
-					if(triangle % i == 0)
-						divisors+=2;		
+
+			for (int i = 2; i <= Math.sqrt(triangle); i++)
+				if (triangle % i == 0)
+					divisors += 2;
 			counter++;
-			if(divisors > trackrecord){
+			if (divisors > trackrecord)
 				trackrecord = divisors;
-				System.out.println("triangle: " + triangle + " divisors: " + divisors);
-			}		
-		}	
+		}
+		long stop = System.currentTimeMillis();
+		System.out.println(triangle + " " + (stop - start) + " ms");
 	}
 }
