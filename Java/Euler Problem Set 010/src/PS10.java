@@ -1,5 +1,3 @@
-import java.util.Vector;
-
 /*
  * Author: Brandon Bernie
  * 
@@ -10,10 +8,12 @@ import java.util.Vector;
  * Find the sum of all the primes below two million.
  */
 
+import java.util.Vector;
+
 public class PS10 {
 
 	public static void main(String[] args) {
-		
+
 		long sum = 0;
 		long start = System.currentTimeMillis();
 		for (int i = 2; i < 2000000; i++) {
@@ -25,15 +25,15 @@ public class PS10 {
 		}
 		long stop = System.currentTimeMillis();
 		System.out.println(sum + " " + (stop - start) + " ms");
-		
+
 		sum = 0;
 		start = System.currentTimeMillis();
 		Vector<Long> v = getPrimes(2000000);
-		for(Long l : v)
+		for (Long l : v)
 			sum += l.longValue();
 		stop = System.currentTimeMillis();
 		System.out.println(sum + " " + (stop - start) + " ms");
-		
+
 	}
 
 	public static boolean isPrime(long n) {
@@ -60,12 +60,12 @@ public class PS10 {
 			return true;
 		}
 	}
-	
-	public static Vector<Long> getPrimes (int upTo) {
+
+	public static Vector<Long> getPrimes(int upTo) {
 		int size = upTo + 1;
-		boolean [] flags = new boolean[size];
-		Vector<Long> primes = new Vector<Long> ();
-		double limit = Math.sqrt (size);
+		boolean[] flags = new boolean[size];
+		Vector<Long> primes = new Vector<Long>();
+		double limit = Math.sqrt(size);
 
 		// Set flags
 		for (int i = 2; i < size; i++) {
@@ -90,7 +90,7 @@ public class PS10 {
 		// Build list of primes from what is left
 		for (int i = 2; i < size; i++) {
 			if (flags[i]) {
-				primes.addElement (new Long (i));
+				primes.addElement(new Long(i));
 			}
 		}
 		return primes;
