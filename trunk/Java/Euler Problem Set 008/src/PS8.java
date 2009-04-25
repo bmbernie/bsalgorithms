@@ -33,7 +33,7 @@ public class PS8 {
 		String [] table = new String[996];
 		int [] values = new int[5];
 		int product = 0;
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 	    for(int i = 0; i <= 995; i++){
 			table[i] = number.substring(i, (i+5));
 			for(int j = 0; j < table[i].length(); j++)
@@ -41,17 +41,17 @@ public class PS8 {
 			if(values[0]*values[1]*values[2]*values[3]*values[4] > product)
 				product = values[0]*values[1]*values[2]*values[3]*values[4];	
 		}
-	    long stop = System.currentTimeMillis();
-	    System.out.println(product + " " + (stop - start) + " ms");
+	    long stop = System.nanoTime();
+	    System.out.println(product + " " + (stop - start) + " ns");
 	    
 	    start = System.nanoTime();
 	    product = 0;
 	    int temp = 1;
 	    char[] numstr = number.toCharArray();
 	    for(int i = 0; i < numstr.length - 5; i++){
-	    	for(int j = 0; j < 5; j++){
+	    	for(int j = 0; j < 5; j++)
 	    		temp *= numstr[i+j]- 48;
-	    	}
+	    	
 	    	if(temp > product)
 	    		product = temp;
 	    	temp = 1;
