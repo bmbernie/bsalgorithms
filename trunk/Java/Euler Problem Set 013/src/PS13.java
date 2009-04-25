@@ -27,7 +27,6 @@ public class PS13 {
 		try {
 			br = new BufferedReader(new FileReader("numbers.txt"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -38,7 +37,6 @@ public class PS13 {
 				i++;
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
