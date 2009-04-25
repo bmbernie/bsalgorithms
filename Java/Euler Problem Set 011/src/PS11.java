@@ -59,66 +59,65 @@ public class PS11 {
 		int d = 0;
 		int product = 0;
 		int maxproduct = 0;
-		
+
 		long start = System.nanoTime();
-		//horizontal scan
-		for(int i = 0; i < table[0].length; i++)
-			for(int j = 0; j < table.length - 3; j++){
+		// horizontal scan
+		for (int i = 0; i < table[0].length; i++)
+			for (int j = 0; j < table.length - 3; j++) {
 				a = table[i][j];
-				b = table[i][j+1];
-				c = table[i][j+2];
-				d = table[i][j+3];
-				
-				if(a*b*c*d > product)
-					product = a*b*c*d;
-			}		
-		if(product > maxproduct)
-			maxproduct = product;
-		
-		//vertical scan
-		for(int i = 0; i < table[0].length - 3; i++)
-			for(int j = 0; j < table.length; j++){
-				a = table[i][j];
-				b = table[i+1][j];
-				c = table[i+2][j];
-				d = table[i+3][j];
-				
-				if(a*b*c*d > product)
-					product = a*b*c*d;
+				b = table[i][j + 1];
+				c = table[i][j + 2];
+				d = table[i][j + 3];
+
+				if (a * b * c * d > product)
+					product = a * b * c * d;
 			}
-		if(product > maxproduct)
+		if (product > maxproduct)
 			maxproduct = product;
-		
-		//diagonal right
-		for(int i = 0; i < table[0].length - 3; i++)
-			for(int j = 0; j < table.length - 3; j++){
+
+		// vertical scan
+		for (int i = 0; i < table[0].length - 3; i++)
+			for (int j = 0; j < table.length; j++) {
 				a = table[i][j];
-				b = table[i+1][j+1];
-				c = table[i+2][j+2];
-				d = table[i+3][j+3];
-				
-				if(a*b*c*d > product)
-					product = a*b*c*d;
+				b = table[i + 1][j];
+				c = table[i + 2][j];
+				d = table[i + 3][j];
+
+				if (a * b * c * d > product)
+					product = a * b * c * d;
 			}
-		if(product > maxproduct)
+		if (product > maxproduct)
 			maxproduct = product;
-		
-		//diagonal left
-		for(int i = 0; i < table[0].length - 3; i++)
-			for(int j = table.length-1; j > 3; j--){
+
+		// diagonal right
+		for (int i = 0; i < table[0].length - 3; i++)
+			for (int j = 0; j < table.length - 3; j++) {
 				a = table[i][j];
-				b = table[i+1][j-1];
-				c = table[i+2][j-2];
-				d = table[i+3][j-3];
-				
-				if(a*b*c*d > product)
-					product = a*b*c*d;
+				b = table[i + 1][j + 1];
+				c = table[i + 2][j + 2];
+				d = table[i + 3][j + 3];
+
+				if (a * b * c * d > product)
+					product = a * b * c * d;
 			}
-		if(product > maxproduct)
+		if (product > maxproduct)
+			maxproduct = product;
+
+		// diagonal left
+		for (int i = 0; i < table[0].length - 3; i++)
+			for (int j = table.length - 1; j > 3; j--) {
+				a = table[i][j];
+				b = table[i + 1][j - 1];
+				c = table[i + 2][j - 2];
+				d = table[i + 3][j - 3];
+
+				if (a * b * c * d > product)
+					product = a * b * c * d;
+			}
+		if (product > maxproduct)
 			maxproduct = product;
 		long stop = System.nanoTime();
-		
+
 		System.out.println(maxproduct + " " + (stop - start) + " ns");
-		
 	}
 }
