@@ -52,12 +52,15 @@ public class PS11 {
 		{20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74,  4, 36, 16},
 		{20, 73, 35, 29, 78, 31, 90,  1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57,  5, 54},
 		{ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48}};	
+		
 		int a = 0;
 		int b = 0;
 		int c = 0;
 		int d = 0;
 		int product = 0;
+		int maxproduct = 0;
 		
+		long start = System.nanoTime();
 		//horizontal scan
 		for(int i = 0; i < table[0].length; i++)
 			for(int j = 0; j < table.length - 3; j++){
@@ -69,7 +72,8 @@ public class PS11 {
 				if(a*b*c*d > product)
 					product = a*b*c*d;
 			}		
-		System.out.println("horizontal = " + product);
+		if(product > maxproduct)
+			maxproduct = product;
 		
 		//vertical scan
 		for(int i = 0; i < table[0].length - 3; i++)
@@ -82,7 +86,8 @@ public class PS11 {
 				if(a*b*c*d > product)
 					product = a*b*c*d;
 			}
-		System.out.println("vertical = " + product);
+		if(product > maxproduct)
+			maxproduct = product;
 		
 		//diagonal right
 		for(int i = 0; i < table[0].length - 3; i++)
@@ -95,7 +100,8 @@ public class PS11 {
 				if(a*b*c*d > product)
 					product = a*b*c*d;
 			}
-		System.out.println("d. right = " + product);
+		if(product > maxproduct)
+			maxproduct = product;
 		
 		//diagonal left
 		for(int i = 0; i < table[0].length - 3; i++)
@@ -108,7 +114,11 @@ public class PS11 {
 				if(a*b*c*d > product)
 					product = a*b*c*d;
 			}
-		System.out.println("d. left = " + product);
+		if(product > maxproduct)
+			maxproduct = product;
+		long stop = System.nanoTime();
+		
+		System.out.println(maxproduct + " " + (stop - start) + " ns");
 		
 	}
 }
