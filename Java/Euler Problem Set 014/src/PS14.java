@@ -21,34 +21,30 @@ public class PS14 {
 	public static void main(String[] args) {
 		int chain = 0;
 		int chainlength = 0;
-		long start =  System.currentTimeMillis();
-		for(int i = 999999; i > 1; i--){
+		long start = System.currentTimeMillis();
+		for (int i = 999999; i > 1; i--) {
 			int counter = 0;
 			long n = i;
-			
-			while(n > 1){
-				
-				if((n & 1) == 0){
+			while (n > 1) {
+				if ((n & 1) == 0) {
 					n >>= 1;
-				}
-				else{
+				} else {
 					n += (n << 1) + 1;
 				}
 				counter++;
 			}
-			
-			if(chainlength < counter){
+			if (chainlength < counter) {
 				chainlength = counter;
 				chain = i;
 			}
 		}
-		long stop =  System.currentTimeMillis();
+		long stop = System.currentTimeMillis();
 		System.out.println(chain + " " + (stop - start) + " ms");
-		
-		start =  System.currentTimeMillis();
-	    int [] cache = new int[1000000];
-	    int maxstart=0, maxcount=0;
-	    for (int i = 1; i < 1000000; i++) {
+
+		start = System.currentTimeMillis();
+		int[] cache = new int[1000000];
+		int maxstart = 0, maxcount = 0;
+		for (int i = 1; i < 1000000; i++) {
 			long n = i;
 			int count = 1;
 			do {
@@ -72,9 +68,7 @@ public class PS14 {
 				maxstart = i;
 			}
 		}
-	    stop =  System.currentTimeMillis();
-	    System.out.println(maxstart + " " + (stop - start) + " ms");
-
+		stop = System.currentTimeMillis();
+		System.out.println(maxstart + " " + (stop - start) + " ms");
 	}
-
 }
