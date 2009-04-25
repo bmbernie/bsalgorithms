@@ -27,6 +27,8 @@ public class PS13 {
 		int tmpint = 0;
 		
 		long start = System.nanoTime();
+		long s1=0;
+		long s2=0;
 		try {
 			br = new BufferedReader(new FileReader("numbers.txt"));
 		} catch (FileNotFoundException e) {
@@ -37,7 +39,9 @@ public class PS13 {
 		try {
 			while ((temp = br.readLine()) != null) {
 				bInt[i] = new BigInteger(temp);
+				s1 = System.nanoTime();
 				lines[i] = temp;
+				s2 = System.nanoTime();
 				i++;
 			}
 		} catch (IOException e) {
@@ -74,7 +78,7 @@ public class PS13 {
 			System.out.print(arr[a]);
 		stop = System.nanoTime();
 		
-		System.out.println("\n" + (stop - start) + " ns");
+		System.out.println("\n" + ((stop - start) + (s2 - s1)) + " ns");
 	}
 
 }
