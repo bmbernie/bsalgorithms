@@ -55,7 +55,6 @@ public class PS14 {
 						break;
 					}
 				} else {
-					// n = n*3 + 1;
 					n += (n << 1) + 1;
 				}
 				count++;
