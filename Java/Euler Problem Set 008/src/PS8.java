@@ -1,10 +1,12 @@
 /*
+ * Author: Brandon Bernie
  * Problem 8
  * 
  * Find the greatest product of five consecutive digits in the 1000-digit 
  * number.
  * 
  */
+
 public class PS8 {
 
 	public static void main(String[] args) {
@@ -41,6 +43,21 @@ public class PS8 {
 		}
 	    long stop = System.currentTimeMillis();
 	    System.out.println(product + " " + (stop - start) + " ms");
+	    
+	    start = System.nanoTime();
+	    product = 0;
+	    int temp = 1;
+	    char[] numstr = number.toCharArray();
+	    for(int i = 0; i < numstr.length - 5; i++){
+	    	for(int j = 0; j < 5; j++){
+	    		temp *= numstr[i+j]- 48;
+	    	}
+	    	if(temp > product)
+	    		product = temp;
+	    	temp = 1;
+	    }
+	    stop = System.nanoTime();
+	    System.out.println(product + " " + (stop - start) + " ns");
 	}
 
 }
