@@ -19,7 +19,7 @@ public class PS13 {
 
 	public static void main(String[] args) {
 		BigInteger[] bInt = new BigInteger[100];
-		BigInteger total = new BigInteger("0");
+		BigInteger total = BigInteger.ZERO;
 		BufferedReader br = null;
 		String temp = null;
 		
