@@ -10,6 +10,7 @@
  */
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -22,8 +23,11 @@ public class PS13 {
 		BigInteger total = BigInteger.ZERO;
 		BufferedReader br = null;
 		String temp = null;
+		String[] lines = new String[100];
+		int[] arr = new int[50];
+		int tmpint = 0;
 		
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		try {
 			br = new BufferedReader(new FileReader("numbers.txt"));
 		} catch (FileNotFoundException e) {
@@ -34,6 +38,7 @@ public class PS13 {
 		try {
 			while ((temp = br.readLine()) != null) {
 				bInt[i] = new BigInteger(temp);
+				lines[i] = temp;
 				i++;
 			}
 		} catch (IOException e) {
@@ -42,10 +47,35 @@ public class PS13 {
 		
 		for(int j = 0; j <100; j++)
 			total = total.add(bInt[j]);
-		long stop = System.currentTimeMillis();
-		System.out.println(total.toString().substring(0, 9));
-		System.out.println((stop - start) + " ms");
+		long stop = System.nanoTime();
+		System.out.println(total.toString().substring(0, 10) + " ");
+		System.out.println((stop - start) + " ns ");
 		
+		start = System.nanoTime();
+		for(int a = 49; a >= 0; a--){
+			for(int b = 0; b < 100; b++){
+				tmpint += lines[b].charAt(a) - 48;
+			}
+			arr[a] = tmpint;
+			tmpint = 0;
+		}
+		for(int a = 49; a >= 1; a--) {
+			tmpint = arr[a];
+			arr[a] = tmpint % 10;
+			tmpint /= 10;
+			arr[a-1] += tmpint;
+		}
+		tmpint = arr[0];
+		i = 0;
+		while(tmpint > 0){
+			tmpint /= 10;
+			i++;
+		}
+		for(int a = 0; a <= 9-(i-1); a++)
+			System.out.print(arr[a]);
+		stop = System.nanoTime();
+		
+		System.out.println("\n" + (stop - start) + " ns");
 	}
 
 }
