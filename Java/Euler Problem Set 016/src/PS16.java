@@ -14,14 +14,24 @@ public class PS16 {
 
 	public static void main(String[] args) {
 		long start, stop;
-		start = System.currentTimeMillis();
 		BigInteger a = new BigInteger("2");
+		start = System.currentTimeMillis();
 		a = a.pow(1000);
 		int sum = 0;
 		for (int j = 0; j < a.toString().length(); j++)
 			sum += Integer.parseInt(a.toString().substring(j, j + 1));
 		stop = System.currentTimeMillis();
 		System.out.println(sum + " " + (stop - start) + " ms");
+		
+		a = BigInteger.ONE;
+		sum = 0;
+		start = System.nanoTime();
+		a = a.shiftLeft(1000);
+		char [] b = a.toString().toCharArray();
+		for(int i = 0; i < b.length; i++)
+			sum += b[i] - 48;
+		stop = System.nanoTime();
+		System.out.println(sum + " " + (stop - start) + " ns");
 	}
 
 }
