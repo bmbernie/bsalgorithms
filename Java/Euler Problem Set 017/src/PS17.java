@@ -27,7 +27,45 @@ public class PS17 {
 		}
 		stop = System.nanoTime();
 		System.out.println("total letters = " + sum);
-		System.out.println((stop - start) + " ms");
+		System.out.println((stop - start) + " ns");
+		
+		// Second approach
+		int sumOnetoNine = 0;
+		int sumOnetoNinetyNine = 0;
+		int temp1 = 0, temp2 = 0, temp3 = 0;
+		sum = 0;
+		
+		start = System.nanoTime();
+		// 1-9
+		temp1 = 3 + 3 + 5 + 4 + 4 + 3 + 5 + 5 + 4;
+		sumOnetoNine = temp1;
+
+		// 10-19
+		temp2 = 3 + 6 + 6 + 8 + 8 + 7 + 7 + 9 + 8 + 8;
+
+		// 20-90
+		temp3 = 6 + 6 + 5 + 5 + 5 + 7 + 6 + 6;
+
+		// 1-99
+		temp1 *= 9;
+		temp3 *= 10;
+		sumOnetoNinetyNine = temp1 + temp3 + temp2;
+
+		// and
+		sum = 99 * 9 * 3;
+
+		// hundred
+		sum += 7 * 900;
+
+		// hundreds
+		sum += sumOnetoNine * 100;
+		sum += sumOnetoNinetyNine * 10;
+
+		// l000
+		sum += 11;
+		
+		stop = System.nanoTime();
+		System.out.println(sum + " " + (stop - start) + " ns");
 	}
 
 	public static int getLetters(int number) {
