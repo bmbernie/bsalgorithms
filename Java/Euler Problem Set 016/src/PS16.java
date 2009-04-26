@@ -13,14 +13,18 @@ import java.math.BigInteger;
 public class PS16 {
 	
 	public static void main(String[] args) {
+		long start, stop;
+		
+		start = System.currentTimeMillis();
 		BigInteger a= new BigInteger("2");
 		a = a.pow(1000);
-		int finalSum=0;
-		
+		int sum=0;
 		for(int j=0;j<a.toString().length();j++)
-			finalSum+=Integer.parseInt(a.toString().substring(j, j+1));
+			sum+=Integer.parseInt(a.toString().substring(j, j+1));
+		stop = System.currentTimeMillis();
+		System.out.println(sum + " " + (stop - start) + " ms");
 		
-		System.out.println(finalSum);
+		
 	}
 
 }
