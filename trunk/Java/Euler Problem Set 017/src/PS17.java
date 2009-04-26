@@ -17,68 +17,69 @@
  */
 
 public class PS17 {
-	
+
 	public static void main(String[] args) {
 		int sum = 0;
-		for(int i = 1; i <= 1000; i++){
+		long start, stop;
+		start = System.nanoTime();
+		for (int i = 1; i <= 1000; i++) {
 			sum += getLetters(i);
 		}
-		
+		stop = System.nanoTime();
 		System.out.println("total letters = " + sum);
+		System.out.println((stop - start) + " ms");
 	}
-	
-	public static int getLetters(int number){
+
+	public static int getLetters(int number) {
 		int total = 0;
-		
-		//split into parts
-		int thousands  = (number / 1000);
-		int hundreds = (number % 1000)/100;
-		int tens = (number % 100)/10;
+
+		// split into parts
+		int thousands = (number / 1000);
+		int hundreds = (number % 1000) / 100;
+		int tens = (number % 100) / 10;
 		int ones = (number % 10);
-		
-		//thousands
-		if(thousands == 1)
+
+		// thousands
+		if (thousands == 1)
 			total += 3 + 8;
-		
-		//hundreds
-		if(hundreds == 1 || hundreds == 2 || hundreds == 6)
+
+		// hundreds
+		if (hundreds == 1 || hundreds == 2 || hundreds == 6)
 			total += (3 + 7);
-		if(hundreds == 4 || hundreds == 5 || hundreds == 9)
+		if (hundreds == 4 || hundreds == 5 || hundreds == 9)
 			total += (4 + 7);
-		if(hundreds == 3 || hundreds == 7 || hundreds == 8)
+		if (hundreds == 3 || hundreds == 7 || hundreds == 8)
 			total += (5 + 7);
-		if(hundreds != 0 && !(tens == 0 && ones == 0))
+		if (hundreds != 0 && !(tens == 0 && ones == 0))
 			total += 3;
 
-		if(tens == 1)
-			if(ones == 0)
+		if (tens == 1)
+			if (ones == 0)
 				total += 3;
-			else if(ones == 1 || ones == 2)
+			else if (ones == 1 || ones == 2)
 				total += 6;
-			else if(ones == 3 || ones == 4 || ones == 8 || ones  == 9)
+			else if (ones == 3 || ones == 4 || ones == 8 || ones == 9)
 				total += 8;
-			else if(ones == 5 || ones == 6)
+			else if (ones == 5 || ones == 6)
 				total += 7;
 			else
 				total += 9;
-		else if(tens > 1)
-			if(tens == 2 || tens == 3 || tens == 8 || tens ==9)
+		else if (tens > 1)
+			if (tens == 2 || tens == 3 || tens == 8 || tens == 9)
 				total += 6;
-			else if(tens == 4 || tens == 5 || tens == 6)
+			else if (tens == 4 || tens == 5 || tens == 6)
 				total += 5;
-			
-			else if(tens == 7)
+			else if (tens == 7)
 				total += 7;
-		
-		if(ones < 10 && tens != 1)
-			if(ones == 1 || ones == 2 || ones == 6)
+
+		if (ones < 10 && tens != 1)
+			if (ones == 1 || ones == 2 || ones == 6)
 				total += 3;
-			else if(ones == 4 || ones == 5 || ones == 9)
+			else if (ones == 4 || ones == 5 || ones == 9)
 				total += 4;
-			else if(ones == 3 || ones == 7 || ones == 8)
+			else if (ones == 3 || ones == 7 || ones == 8)
 				total += 5;
-			
+
 		return total;
 	}
-
 }
