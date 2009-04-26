@@ -8,6 +8,7 @@
  */
 
 import java.math.BigInteger;
+import java.util.StringTokenizer;
 
 public class PS15 {
 
@@ -33,7 +34,49 @@ public class PS15 {
 		denominator = bigFactorial (20);
 		numerator = numerator.divide(denominator);
 		stop = System.nanoTime();
-		System.out.println(numerator.toString() + " " + (stop - start) + " ns");	
+		System.out.println(numerator.toString() + " " + (stop - start) + " ns");
+		
+		//3rd attempt
+		start = System.nanoTime();
+		int[] table = new int[40];
+		long result = 1;
+		for(int i = 2; i <= 40; i++){
+			StringTokenizer st = new StringTokenizer(primeFactors(i));
+			while(st.hasMoreTokens()){
+				table[Integer.parseInt(st.nextToken())]++;
+			}
+		}
+		for(int i = 2; i <= 20; i++){
+			StringTokenizer st = new StringTokenizer(primeFactors(i));
+			while(st.hasMoreTokens()){
+				table[Integer.parseInt(st.nextToken())] -= 2;
+			}
+		}
+		for(int i = 39; i > 2; i--){
+			result *= Math.pow(i, table[i]);
+		}
+		result = result << table[2];
+		stop = System.nanoTime();
+		System.out.println(result + " " + (stop - start) + " ns");
+		
+	}
+	
+	public static String primeFactors(int n){
+        StringBuffer factors = new StringBuffer();
+        
+        // for each potential factor i
+        for (int i = 2; i <= n / i; i++) {
+            // if i is a factor of N, repeatedly divide it out
+            while (n % i == 0) {
+                factors.append(Integer.toString(i) + " "); 
+                n = n / i;
+            }
+        }
+        // if biggest factor occurs only once, n > 1
+        if (n > 1) 
+        	factors.append(Integer.toString(n));
+        
+        return factors.toString();
 	}
 	
 	public static BigInteger bigFactorial(int n){
