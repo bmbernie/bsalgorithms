@@ -40,5 +40,25 @@ public class PS19 {
 		}
 		stop = System.nanoTime();
 		System.out.println(fomSundays + " " + (stop - start) + " ns");
+		
+		int[] months={31,28,31,30,31,30,31,31,30,31,30,31};
+		int[] lymonths={31,29,31,30,31,30,31,31,30,31,30,31};
+		int day = 2;
+		int count = 0;
+		
+		start = System.nanoTime();
+		for(int year = 1901; year < 2001; year++){
+			for(int i = 0; i < 12; i++){
+				if(year % 4 != 0)
+					day += months[i] % 7;
+				else
+					day += lymonths[i] % 7;
+				
+				if(day % 7 == 0)
+					count++;
+			}
+		}
+		stop = System.nanoTime();
+		System.out.println(count + " " + (stop - start) + " ns");
 	}
 }
