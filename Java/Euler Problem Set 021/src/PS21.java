@@ -21,7 +21,6 @@ import java.util.List;
 import java.lang.Integer;
 
 public class PS21 {
-	
 	public static void main(String[] args) {
 		final int MAX = 10000;
 		int total = 0; 
@@ -46,7 +45,7 @@ public class PS21 {
 		}
 		long end = System.nanoTime();
 		System.out.println(total + " " + (end - begin)/1000000);
-
+		
 		total = 0;
 		flags = new boolean[MAX];
 		begin = System.nanoTime();
