@@ -1,4 +1,6 @@
 /*
+ * Author: Brandon Bernie
+ * 
  * Problem 22
  * 
  * Using names.txt (right click and 'Save Link/Target As...'), a 46K text file
