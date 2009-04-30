@@ -21,16 +21,13 @@
  * of two abundant numbers. 20161
  */
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeSet;
 
 public class PS23 {
 
 	public static void main(String[] args) {
 		long start=0, stop=0;
-		int limit = 28123;
+		int limit = 20161;
 		int result = 0;
 		int[] numbers = new int[limit];
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
