@@ -21,66 +21,61 @@
  * of two abundant numbers.
  */
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class PS23 {
 
 	public static void main(String[] args) {
 		long start = 0, stop = 0;
-		int limit = 20161;
-		int result = 0;
+		int limit = 20161, result = 0;
 		int[] numbers = new int[limit];
+		int[] nums = new int[limit + 1];
+		boolean[] abundant = new boolean[limit + 1];
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
 
 		start = System.nanoTime();
-//		for (int i = 0; i < numbers.length; i++) {
-//			numbers[i] = i + 1;
-//			result += numbers[i];
-//			if (isAbundant(numbers[i]))
-//				abundants.add(numbers[i]);
-//		}
-//
-//		for (int i = 0; i < abundants.size(); i++) {
-//			for (int j = i; j < abundants.size(); j++) {
-//				int index = abundants.get(i) + abundants.get(j) - 1;
-//				if (index < numbers.length) {
-//					result -= numbers[index];
-//					numbers[index] = 0;
-//				}
-//				else
-//					break;
-//			}
-//		}
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = i + 1;
+			result += numbers[i];
+			if (isAbundant(numbers[i]))
+				abundants.add(numbers[i]);
+		}
+
+		for (int i = 0; i < abundants.size(); i++) {
+			for (int j = i; j < abundants.size(); j++) {
+				int index = abundants.get(i) + abundants.get(j) - 1;
+				if (index < numbers.length) {
+					result -= numbers[index];
+					numbers[index] = 0;
+				}
+				else
+					break;
+			}
+		}
 		stop = System.nanoTime();
 		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
 
+		//faster method
 		start = System.nanoTime();
-		int[] abNums = new int[limit + 1];
-		int[] nums = new int[limit + 1];
-		boolean[] abundant = new boolean[limit + 1];
-		int nAb = 0;
-
 		for (int n = 1; n <= limit; n++) {
 			nums[n] = n;
-		//	abundant[n] = isAbundant(n);
 			if (abundant[n] = isAbundant(n))
-				abNums[nAb++] = n;
+				abundants.add(n);
 		}
-
-		for (int n = 1; n <= limit; n++) {
-			for (int iAb = 0; iAb < nAb; iAb++) {
-				if (n - abNums[iAb] < 12)
+		
+		for (int i = 1; i <= limit; i++) {
+			Iterator<Integer> itr = abundants.iterator(); 
+			while(itr.hasNext())  {
+				Integer temp = itr.next();
+				if (i - temp < 12)
 					break;
-				if (abundant[n - abNums[iAb]]) {
-					nums[n] = 0;
+				if (abundant[i - temp]) {
+					nums[i] = 0;
 					break;
 				}
 			}
 		}
-		
-		for(int i = 0; i < nums.length; i++)
-			System.out.print(nums[i] + ",");
-		System.out.println();
 		
 		result = 0;
 		for (int i = 1; i <= limit; i++)
