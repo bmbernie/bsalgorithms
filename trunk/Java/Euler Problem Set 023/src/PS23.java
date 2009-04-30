@@ -47,6 +47,8 @@ public class PS23 {
 					result -= numbers[index];
 					numbers[index] = 0;
 				}
+				else
+					break;
 			}
 		}
 		stop = System.nanoTime();
