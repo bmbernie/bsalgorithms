@@ -26,97 +26,98 @@ import java.util.LinkedList;
 public class PS23 {
 
 	public static void main(String[] args) {
-		long start=0, stop=0;
+		long start = 0, stop = 0;
 		int limit = 20161;
 		int result = 0;
 		int[] numbers = new int[limit];
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
- 
+
 		start = System.nanoTime();
-		for(int i=0; i<numbers.length; i++ ){
-			numbers[i] = i+1;
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = i + 1;
 			result += numbers[i];
-			if( isAbundant(numbers[i]) )
-				abundants.add( numbers[i] );	
+			if (isAbundant(numbers[i]))
+				abundants.add(numbers[i]);
 		}
- 
-		for( int i=0; i<abundants.size(); i++ ){
-			for( int j=i; j<abundants.size(); j++ ){
-				int index = (Integer)abundants.get(i) + (Integer)abundants.get(j) - 1;
-				if( index < numbers.length ){
-					result -= numbers[index];	
+
+		for (int i = 0; i < abundants.size(); i++) {
+			for (int j = i; j < abundants.size(); j++) {
+				int index = (Integer) abundants.get(i)
+				+ (Integer) abundants.get(j) - 1;
+				if (index < numbers.length) {
+					result -= numbers[index];
 					numbers[index] = 0;
 				}
 			}
 		}
 		stop = System.nanoTime();
-		System.out.println(result + " " + ((stop - start)/1000000) + " ms ");
-		
+		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
+
 		start = System.nanoTime();
-	    int[] abNums = new int[limit+1];
-	    int[] nums = new int[limit+1];
-	    boolean[] abundant = new boolean[limit+1];
-	    int nAb = 0;
-	    
-	    for (int n = 1; n <= limit; n++) {
-	    	nums[n] = n;
-	    	abundant[n] = isAbundant(n);
-	    	if (abundant[n])
-	    		abNums[nAb++] = n;
-	    }
+		int[] abNums = new int[limit + 1];
+		int[] nums = new int[limit + 1];
+		boolean[] abundant = new boolean[limit + 1];
+		int nAb = 0;
 
-	    for (int n = 1; n <= limit; n++) {
-	    	for (int iAb = 0; iAb < nAb; iAb++) {
-	    		if (n - abNums[iAb] < 12)
-	    			break;
-	    		if (abundant[n - abNums[iAb]]) {
-	    			nums[n] = 0;
-	    			break;
-	    		}
+		for (int n = 1; n <= limit; n++) {
+			nums[n] = n;
+			abundant[n] = isAbundant(n);
+			if (abundant[n])
+				abNums[nAb++] = n;
+		}
 
-	    	}
-	    }
-        
-        result = 0;
-        for (int i = 1; i <= limit; i++)
-            result += nums[i];
-        
-        stop = System.nanoTime();
-        System.out.println(result + " " + ((stop - start)/1000000) + " ms ");
+		for (int n = 1; n <= limit; n++) {
+			for (int iAb = 0; iAb < nAb; iAb++) {
+				if (n - abNums[iAb] < 12)
+					break;
+				if (abundant[n - abNums[iAb]]) {
+					nums[n] = 0;
+					break;
+				}
+
+			}
+		}
+
+		result = 0;
+		for (int i = 1; i <= limit; i++)
+			result += nums[i];
+
+		stop = System.nanoTime();
+		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
 	}
-	
-	public static boolean isAbundant(int n){
-		return (sigma(n) > (n+n));
+
+	public static boolean isAbundant(int n) {
+		return (sigma(n) > (n + n));
 	}
-	
-	public static int sigma(int n){
+
+	public static int sigma(int n) {
 		int sum = 1;
 		int p = 2;
-		while(p*p <= n && n > 1){
+		while (p * p <= n && n > 1) {
 			int j;
-			if(n % p == 0){
-				 j = p*p;
-				 n /= p;
-				 while(n % p == 0){
-					 j *= p;
-					 n=n/p;
-				 }
-				 sum *= (j-1);
-				 sum /= (p-1);
+			if (n % p == 0) {
+				j = p * p;
+				n /= p;
+				while (n % p == 0) {
+					j *= p;
+					n = n / p;
+				}
+				sum *= (j - 1);
+				sum /= (p - 1);
 			}
-			if(p == 2)
+			if (p == 2)
 				p = 3;
 			else
 				p += 2;
 		}
-		if(n > 1)
-			sum *= (n+1);
-		
+		if (n > 1)
+			sum *= (n + 1);
+
 		return sum;
 	}
-	
-	public static int sigmaProperDivisors(int n){
-		return sigma(n)-n;
+
+	public static int sigmaProperDivisors(int n) {
+		return sigma(n) - n;
 	}
 
 }
