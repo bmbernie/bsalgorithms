@@ -18,7 +18,7 @@
  * abundant numbers is less than this limit.
  * 
  * Find the sum of all the positive integers which cannot be written as the sum
- * of two abundant numbers. 20161
+ * of two abundant numbers.
  */
 
 import java.util.LinkedList;
