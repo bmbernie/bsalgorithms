@@ -33,24 +33,24 @@ public class PS23 {
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
 
 		start = System.nanoTime();
-		for (int i = 0; i < numbers.length; i++) {
-			numbers[i] = i + 1;
-			result += numbers[i];
-			if (isAbundant(numbers[i]))
-				abundants.add(numbers[i]);
-		}
-
-		for (int i = 0; i < abundants.size(); i++) {
-			for (int j = i; j < abundants.size(); j++) {
-				int index = abundants.get(i) + abundants.get(j) - 1;
-				if (index < numbers.length) {
-					result -= numbers[index];
-					numbers[index] = 0;
-				}
-				else
-					break;
-			}
-		}
+//		for (int i = 0; i < numbers.length; i++) {
+//			numbers[i] = i + 1;
+//			result += numbers[i];
+//			if (isAbundant(numbers[i]))
+//				abundants.add(numbers[i]);
+//		}
+//
+//		for (int i = 0; i < abundants.size(); i++) {
+//			for (int j = i; j < abundants.size(); j++) {
+//				int index = abundants.get(i) + abundants.get(j) - 1;
+//				if (index < numbers.length) {
+//					result -= numbers[index];
+//					numbers[index] = 0;
+//				}
+//				else
+//					break;
+//			}
+//		}
 		stop = System.nanoTime();
 		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
 
@@ -62,8 +62,8 @@ public class PS23 {
 
 		for (int n = 1; n <= limit; n++) {
 			nums[n] = n;
-			abundant[n] = isAbundant(n);
-			if (abundant[n])
+		//	abundant[n] = isAbundant(n);
+			if (abundant[n] = isAbundant(n))
 				abNums[nAb++] = n;
 		}
 
@@ -75,10 +75,13 @@ public class PS23 {
 					nums[n] = 0;
 					break;
 				}
-
 			}
 		}
-
+		
+		for(int i = 0; i < nums.length; i++)
+			System.out.print(nums[i] + ",");
+		System.out.println();
+		
 		result = 0;
 		for (int i = 1; i <= limit; i++)
 			result += nums[i];
