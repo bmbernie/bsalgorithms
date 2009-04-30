@@ -42,8 +42,7 @@ public class PS23 {
 
 		for (int i = 0; i < abundants.size(); i++) {
 			for (int j = i; j < abundants.size(); j++) {
-				int index = (Integer) abundants.get(i)
-				+ (Integer) abundants.get(j) - 1;
+				int index = abundants.get(i) + abundants.get(j) - 1;
 				if (index < numbers.length) {
 					result -= numbers[index];
 					numbers[index] = 0;
