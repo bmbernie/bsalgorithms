@@ -21,7 +21,6 @@
  * of two abundant numbers.
  */
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class PS23 {
@@ -64,9 +63,7 @@ public class PS23 {
 				abundants.add(n);
 		
 		for (int i = 1; i <= limit; i++) {
-			Iterator<Integer> itr = abundants.iterator(); 
-			while(itr.hasNext())  {
-				Integer temp = itr.next();
+			for(Integer temp : abundants)  {
 				if (i - temp < 12)
 					break;
 				if (abundant[i - temp]) {
@@ -113,5 +110,4 @@ public class PS23 {
 	public static int sigmaProperDivisors(int n) {
 		return sigma(n) - n;
 	}
-
 }
