@@ -33,27 +33,27 @@ public class PS23 {
 		boolean[] abundant = new boolean[limit + 1];
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
 
-//		start = System.nanoTime();
-//		for (int i = 0; i < numbers.length; i++) {
-//			numbers[i] = i + 1;
-//			result += numbers[i];
-//			if (isAbundant(numbers[i]))
-//				abundants.add(numbers[i]);
-//		}
-//
-//		for (int i = 0; i < abundants.size(); i++) {
-//			for (int j = i; j < abundants.size(); j++) {
-//				int index = abundants.get(i) + abundants.get(j) - 1;
-//				if (index < numbers.length) {
-//					result -= numbers[index];
-//					numbers[index] = 0;
-//				}
-//				else
-//					break;
-//			}
-//		}
-//		stop = System.nanoTime();
-//		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
+		start = System.nanoTime();
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = i + 1;
+			result += numbers[i];
+			if (isAbundant(numbers[i]))
+				abundants.add(numbers[i]);
+		}
+
+		for (int i = 0; i < abundants.size(); i++) {
+			for (int j = i; j < abundants.size(); j++) {
+				int index = abundants.get(i) + abundants.get(j) - 1;
+				if (index < numbers.length) {
+					result -= numbers[index];
+					numbers[index] = 0;
+				}
+				else
+					break;
+			}
+		}
+		stop = System.nanoTime();
+		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
 		
 		
 		//faster method
