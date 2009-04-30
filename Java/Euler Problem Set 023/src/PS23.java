@@ -30,39 +30,38 @@ public class PS23 {
 		long start = 0, stop = 0;
 		int limit = 20161, result = 0;
 		int[] numbers = new int[limit];
-		int[] nums = new int[limit + 1];
 		boolean[] abundant = new boolean[limit + 1];
 		LinkedList<Integer> abundants = new LinkedList<Integer>();
 
-		start = System.nanoTime();
-		for (int i = 0; i < numbers.length; i++) {
-			numbers[i] = i + 1;
-			result += numbers[i];
-			if (isAbundant(numbers[i]))
-				abundants.add(numbers[i]);
-		}
-
-		for (int i = 0; i < abundants.size(); i++) {
-			for (int j = i; j < abundants.size(); j++) {
-				int index = abundants.get(i) + abundants.get(j) - 1;
-				if (index < numbers.length) {
-					result -= numbers[index];
-					numbers[index] = 0;
-				}
-				else
-					break;
-			}
-		}
-		stop = System.nanoTime();
-		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
-
+//		start = System.nanoTime();
+//		for (int i = 0; i < numbers.length; i++) {
+//			numbers[i] = i + 1;
+//			result += numbers[i];
+//			if (isAbundant(numbers[i]))
+//				abundants.add(numbers[i]);
+//		}
+//
+//		for (int i = 0; i < abundants.size(); i++) {
+//			for (int j = i; j < abundants.size(); j++) {
+//				int index = abundants.get(i) + abundants.get(j) - 1;
+//				if (index < numbers.length) {
+//					result -= numbers[index];
+//					numbers[index] = 0;
+//				}
+//				else
+//					break;
+//			}
+//		}
+//		stop = System.nanoTime();
+//		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
+		
+		
 		//faster method
 		start = System.nanoTime();
-		for (int n = 1; n <= limit; n++) {
-			nums[n] = n;
+		result = (limit * (limit + 1)) / 2;
+		for (int n = 1; n <= limit; n++) 
 			if (abundant[n] = isAbundant(n))
 				abundants.add(n);
-		}
 		
 		for (int i = 1; i <= limit; i++) {
 			Iterator<Integer> itr = abundants.iterator(); 
@@ -71,15 +70,11 @@ public class PS23 {
 				if (i - temp < 12)
 					break;
 				if (abundant[i - temp]) {
-					nums[i] = 0;
+					result -= i;
 					break;
 				}
 			}
 		}
-		
-		result = 0;
-		for (int i = 1; i <= limit; i++)
-			result += nums[i];
 
 		stop = System.nanoTime();
 		System.out.println(result + " " + ((stop - start) / 1000000) + " ms ");
