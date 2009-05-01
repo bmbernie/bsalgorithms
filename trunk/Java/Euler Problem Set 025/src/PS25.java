@@ -25,6 +25,7 @@
  * What is the first term in the Fibonacci sequence to contain 1000 digits?
  */
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class PS25 {
@@ -34,19 +35,33 @@ public class PS25 {
 		BigInteger fib1 = BigInteger.ONE;
 		BigInteger fib2 = BigInteger.ONE;
 		BigInteger fibNext = BigInteger.ZERO;
+		double phi = 1.61803399;
+		double digits = 0;
 
 		//brute force
 		start = System.nanoTime();
-		int counter = 2; // 2 terms in
+		int n = 2; // 2 terms in
 		do{
 			fibNext = fib1.add(fib2);
 			fib1 = fib2;
 			fib2 = fibNext;
 		
-			counter++;
+			n++;
 		}while(fib2.toString().length() < 1000);
 		stop = System.nanoTime();	
-		System.out.println(counter + " " + (stop - start)/1000000 + " ms");
+		System.out.println(n + " " + (stop - start)/1000000 + " ms");
+		
+		//Binets formula for nth fibbonacci
+		//(1/sqrt(5)(phi^n + -phi^n)
+		start = System.nanoTime();
+		n = 0;
+		while(digits < 999) {
+			n++;
+			digits = n * Math.log10(phi) - Math.log10(5.0) / 2;
+		}
+		stop = System.nanoTime();
+		System.out.println(n + " " + (stop - start)/1000000 + " ms");
+		
 	}
 
 }
