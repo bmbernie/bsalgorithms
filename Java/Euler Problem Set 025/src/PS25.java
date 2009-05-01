@@ -1,5 +1,7 @@
 /*
- * Problem 25
+ * Author: Brandon Bernie
+ * 
+ * Problem 025
  * 
  * The Fibonacci sequence is defined by the recurrence relation:
  * 
