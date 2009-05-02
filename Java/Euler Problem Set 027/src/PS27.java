@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /*
  * Author: Brandon Bernie
  * 
@@ -26,6 +23,9 @@ import java.util.List;
  * that produces the maximum number of primes for consecutive values of n,
  * starting with n = 0.
  */
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PS27 {
 
