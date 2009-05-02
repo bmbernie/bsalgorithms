@@ -27,10 +27,11 @@ import java.util.List;
 public class PS26 {
 
 	public static void main(String[] args) {
+		long start, stop;
 		int cycleLength = 0, limit = 1000, denominator = 0;
-		;
 		List<Integer> primeList = getPrimes(limit);
-
+		
+		start = System.nanoTime();
 		for (Integer p : primeList) {
 			int base = 10;
 			int r = 1;
@@ -53,8 +54,8 @@ public class PS26 {
 				denominator = p;
 			}
 		}
-
-		System.out.println(denominator);
+		stop = System.nanoTime();
+		System.out.println(denominator + " " + (stop - start)/1000000 + " ms");
 	}
 
 	public static List<Integer> getPrimes(int upTo) {
