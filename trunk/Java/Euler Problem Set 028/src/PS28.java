@@ -29,5 +29,4 @@ public class PS28 {
 		
 		System.out.println(sum + " " + (stop - start) + " ns");
 	}
-
 }
