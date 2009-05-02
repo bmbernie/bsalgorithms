@@ -51,7 +51,7 @@ public class PS25 {
 		System.out.println(n + " " + (stop - start)/1000000 + " ms");
 		
 		//Binets formula for nth fibbonacci
-		//(1/sqrt(5)(phi^n + -phi^n)
+		//(phi^n)/sqrt(5)
 		start = System.nanoTime();
 		n = 0;
 		while(digits < 999) {
