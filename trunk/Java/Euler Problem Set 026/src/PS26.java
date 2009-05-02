@@ -27,40 +27,41 @@ import java.util.List;
 public class PS26 {
 
 	public static void main(String[] args) {
-		int cycleLength = 0, limit = 1000, denominator = 0;;
+		int cycleLength = 0, limit = 1000, denominator = 0;
+		;
 		List<Integer> primeList = getPrimes(limit);
-		
-		for(Integer p : primeList){
+
+		for (Integer p : primeList) {
 			int base = 10;
 			int r = 1;
 			int t = 0;
 			StringBuffer n = new StringBuffer();
-			
-			if(base % p == 0)
+
+			if (base % p == 0)
 				continue;
-			
-			do{
+
+			do {
 				t++;
 				int x = r * base;
 				int d = x / p;
 				r = x % p;
 				n.append(d);
-			}while(r != 1);
-			
-			if(n.length() > cycleLength){
+			} while (r != 1);
+
+			if (n.length() > cycleLength) {
 				cycleLength = n.length();
 				denominator = p;
 			}
 		}
-		
+
 		System.out.println(denominator);
 	}
-	
-	public static List<Integer> getPrimes (int upTo) {
+
+	public static List<Integer> getPrimes(int upTo) {
 		int size = upTo + 1;
-		boolean [] flags = new boolean[size];
-		List<Integer> primes = new ArrayList<Integer> ();
-		double limit = Math.sqrt (size);
+		boolean[] flags = new boolean[size];
+		List<Integer> primes = new ArrayList<Integer>();
+		double limit = Math.sqrt(size);
 
 		// Set flags
 		for (int i = 2; i < size; i++) {
