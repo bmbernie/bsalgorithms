@@ -25,7 +25,6 @@
  * What is the first term in the Fibonacci sequence to contain 1000 digits?
  */
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class PS25 {
@@ -60,7 +59,7 @@ public class PS25 {
 			digits = n * Math.log10(phi) - Math.log10(5.0) / 2;
 		}
 		stop = System.nanoTime();
-		System.out.println(n + " " + (stop - start)/1000000 + " ms");
+		System.out.println(n + " " + (stop - start)/1000000 + " ms ");
 		
 	}
 
