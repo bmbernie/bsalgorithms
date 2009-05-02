@@ -21,11 +21,73 @@
  * recurring cycle in its decimal fraction part.
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PS26 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int cycleLength = 0, limit = 1000, denominator = 0;;
+		List<Integer> primeList = getPrimes(limit);
+		
+		for(Integer p : primeList){
+			int base = 10;
+			int r = 1;
+			int t = 0;
+			StringBuffer n = new StringBuffer();
+			
+			if(base % p == 0)
+				continue;
+			
+			do{
+				t++;
+				int x = r * base;
+				int d = x / p;
+				r = x % p;
+				n.append(d);
+			}while(r != 1);
+			
+			if(n.length() > cycleLength){
+				cycleLength = n.length();
+				denominator = p;
+			}
+		}
+		
+		System.out.println(denominator);
 	}
+	
+	public static List<Integer> getPrimes (int upTo) {
+		int size = upTo + 1;
+		boolean [] flags = new boolean[size];
+		List<Integer> primes = new ArrayList<Integer> ();
+		double limit = Math.sqrt (size);
 
+		// Set flags
+		for (int i = 2; i < size; i++) {
+			flags[i] = true;
+		}
+
+		// Cross out multiples of 2
+		int j = 2;
+		for (int i = j + j; i < size; i += j) {
+			flags[i] = false;
+		}
+
+		// Cross out multiples of odd numbers
+		for (j = 3; j <= limit; j = j + 2) {
+			if (flags[j]) {
+				for (int i = j + j; i < size; i = i + j) {
+					flags[i] = false;
+				}
+			}
+		}
+
+		// Build list of primes from what is left
+		for (int i = 2; i < size; i++) {
+			if (flags[i]) {
+				primes.add(i);
+			}
+		}
+		return primes;
+	}
 }
