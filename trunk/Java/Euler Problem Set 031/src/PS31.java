@@ -18,32 +18,33 @@ public class PS31 {
 	public static void main(String[] args) {
 		long start, stop;
 		int combinations = 0;
-		
-		//brute-force
+
+		// brute-force
 		start = System.nanoTime();
-		for(int a=0; a<=200; a+=200)
-		    for(int b=0; a+b<=200; b+=100)
-		        for(int c=0; a+b+c<=200; c+=50)
-		            for(int d=0; a+b+c+d<=200; d+=20)
-		                for(int e=0; a+b+c+d+e<=200; e+=10)
-		                    for(int f=0; a+b+c+d+e+f<=200; f+=5)
-		                        for(int g=0; a+b+c+d+e+f+g<=200; g+=2)
-		                            for(int h=0; a+b+c+d+e+f+g+h<=200; h++)
-		                                if(a+b+c+d+e+f+g+h==200) 
-		                                	combinations++;
+		for (int a = 0; a <= 200; a += 200)
+			for (int b = 0; a + b <= 200; b += 100)
+				for (int c = 0; a + b + c <= 200; c += 50)
+					for (int d = 0; a + b + c + d <= 200; d += 20)
+						for (int e = 0; a + b + c + d + e <= 200; e += 10)
+							for (int f = 0; a + b + c + d + e + f <= 200; f += 5)
+								for (int g = 0; a + b + c + d + e + f + g <= 200; g += 2)
+									for (int h = 0; a + b + c + d + e + f + g
+											+ h <= 200; h++)
+										if (a + b + c + d + e + f + g + h == 200)
+											combinations++;
 		stop = System.nanoTime();
-		
+
 		System.out.println(combinations);
-		System.out.println((stop - start)/1000000 + " ms");
-		
+		System.out.println((stop - start) / 1000000 + " ms");
+
 		final int TOTAL = 200;
-		int[] coins = {1, 2, 5, 10, 20, 50, 100, 200};
+		int[] coins = { 1, 2, 5, 10, 20, 50, 100, 200 };
 		int[] ways = new int[TOTAL + 1];
 		ways[0] = 1;
 
 		start = System.nanoTime();
-		for(int coin: coins)
-			for(int j = coin; j <= TOTAL; j++)
+		for (int coin : coins)
+			for (int j = coin; j <= TOTAL; j++)
 				ways[j] += ways[j - coin];
 
 		stop = System.nanoTime();
@@ -51,5 +52,4 @@ public class PS31 {
 		System.out.println((stop - start) + " ns");
 
 	}
-
 }
