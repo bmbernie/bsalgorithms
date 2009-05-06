@@ -26,17 +26,21 @@ import java.util.Set;
 public class PS29 {
 	
 	public static void main(String[] args) {
+		long start, stop;
 		BigInteger term = BigInteger.ONE;
 		Set<BigInteger> products = new HashSet<BigInteger>();
 		
+		start = System.nanoTime();
 		for(int a = 2; a < 101; a++)
 			for(int b = 2; b < 101; b++){
 				term = new BigInteger(Integer.toString(a));
 				term = term.pow(b);
 				products.add(term);
 			}
+		stop = System.nanoTime();
 		
 		System.out.println(products.size());
+		System.out.println((stop - start)/1000000 + " ms");
 
 	}
 
