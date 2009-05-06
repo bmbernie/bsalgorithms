@@ -23,7 +23,7 @@ public class PS30 {
 		int total = 0;
 		int max = 6*(int)Math.pow(9, 5);
 		
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		for(int i = 2; i <= max; i++){
 			int sum = 0, temp;
 			
@@ -36,9 +36,9 @@ public class PS30 {
 			if(sum == i)
 				total += sum;	
 		}
-		long stop = System.currentTimeMillis();
+		long stop = System.nanoTime();
 		System.out.println("total = " + total);
-		System.out.println(stop - start + "ms");
+		System.out.println((stop - start)/1000000 + "ms");
 	}
 
 }
