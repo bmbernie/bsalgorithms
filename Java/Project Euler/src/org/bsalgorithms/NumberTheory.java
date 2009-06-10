@@ -448,16 +448,16 @@ public class NumberTheory {
 	 * 1. <code>gcd(0, v) = v</code>, because everything divides zero, and
 	 * <code>v</code> is the largest number that divides <code>v</code>.
 	 * Similarly, <code>gcd(u, 0) = u</code>. <code>gcd(0, 0)</code> is not
-	 * defined.<br>
+	 * defined.<p>
 	 * 
 	 * 2. If <code>u</code> and <code>v</code> are both even, then
 	 * <code>gcd(u, v) = 2·gcd(u/2, v/2)</code>, because <code>2</code> is a
-	 * common divisor.<br>
+	 * common divisor.<p>
 	 * 
 	 * 3. If <code>u</code> is even and <code>v</code> is odd, then
 	 * <code>gcd(u, v) = gcd(u/2, v)</code>, because <code>2</code> is not a
-	 * common divisor. Similarly, if <code>u</code> is odd and <code>v</code> is
-	 * even, then <code>gcd(u, v) = gcd(u, v/2)</code>.<br>
+	 * common divisor. Similarly, if <code>u</code> is odd and <code>v</code>
+	 * is even, then <code>gcd(u, v) = gcd(u, v/2)</code>.<p>
 	 * 
 	 * 4. If <code>u</code> and <code>v</code> are both odd, and
 	 * <code>u = v</code>, then <code>gcd(u, v) = gcd((u-v)/2, v)</code>. If
@@ -465,9 +465,10 @@ public class NumberTheory {
 	 * <code>gcd(u, v) = gcd((v-u)/2, u)</code>. These are combinations of one
 	 * step of the simple Euclidean algorithm, which uses subtraction at each
 	 * step, and an application of step 3 above. The division by <code>2</code>
-	 * results in an integer because the difference of two odd numbers iseven. <br>
+	 * results in an integer because the difference of two odd numbers iseven.
+	 * <p>
 	 * 
-	 * 5. Repeat steps 3–4 until <code>u = v</code>, or (one more step) until
+	 * 5. Repeat steps 3–4 until <code>u=v</code>, or (one more step) until
 	 * <code>u = 0</code>. In either case, the result is <code>(2^k)v</code>,
 	 * where <code>k</code> is the number of common factors of <code>2</code>
 	 * found in step 2. <br>
