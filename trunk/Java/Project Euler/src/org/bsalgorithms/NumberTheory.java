@@ -23,8 +23,10 @@ public class NumberTheory {
 	 * 
 	 * @see #sigma(int)
 	 * @see #sigmaProperDivisors(int)
+	 * 
 	 * @param n
 	 *            positive integer, <code>(n < 0)</code>
+	 *            
 	 * @return <code>true</code> if the positive integer <code>n</code> is
 	 *         Deficient
 	 *         
@@ -43,8 +45,10 @@ public class NumberTheory {
 	 * 
 	 * @see #sigma(int)
 	 * @see #sigmaProperDivisors(int)
+	 * 
 	 * @param n
 	 *            positive integer, <code>(n < 0)</code>
+	 *            
 	 * @return <code>true</code> if the positive integer <code>n</code> is
 	 *         Perfect
 	 *         
@@ -63,8 +67,10 @@ public class NumberTheory {
 	 * 
 	 * @see #sigma(int)
 	 * @see #sigmaProperDivisors(int)
+	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return <code>true</code> if the positive integer <code>n</code> is
 	 *         Abundant
 	 *         
@@ -82,8 +88,10 @@ public class NumberTheory {
 	 * <code>sigma(4) == 1 + 2 + 4 == 6</code>
 	 * 
 	 * @see #sigmaProperDivisors(int)
+	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return the sum of all divisors for <code>n</code>
 	 * 
 	 * @author Brandon Bernie
@@ -123,8 +131,10 @@ public class NumberTheory {
 	 * <code>sigmaProperDivisors(4) == 1 + 2 == 3</code>
 	 * 
 	 * @see #sigma(int)
+	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return the sum of all the proper divisors for <code>n</code>
 	 * 
 	 * @author Brandon Bernie
@@ -140,6 +150,7 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return <code>true</code> if the integer <code>n</code> is odd and<br>
 	 *         <code>false</code> if the integer <code>n</code> is even
 	 *         
@@ -161,6 +172,7 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return <code>true</code> if the integer <code>n</code> is prime and
 	 *         <code>false</code> if the integer <code>n</code> is not prime
 	 *         
@@ -200,6 +212,7 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return <code>true</code> if the integer <code>n</code> is a circular
 	 *         prime <br>
 	 *         <code>false</code> if the integer <code>n</code> is not a
@@ -245,8 +258,10 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return A list of prime factors for the integer <code>n</code> in
 	 *         [coefficient, exponent] pairs
+	 *         
 	 * @author Brandon Bernie
 	 */
 	public static List<Pair<Integer, Integer>> factorInteger(int n) {
@@ -291,7 +306,9 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return the number of primes upto the integer <code>n</code>
+	 * 
 	 * @author Brandon Bernie
 	 */
 	public static int primePi(int n) {
@@ -336,7 +353,10 @@ public class NumberTheory {
 	 * 
 	 * @param upTo
 	 *            positive integer, <code>(upTo >0)</code>
+	 *            
 	 * @return a list of prime numbers upto <code>n</code>
+	 * 
+	 * @author Brandon Bernie
 	 */
 	public static List<Integer> generatePrimes(int upTo) {
 		int size = upTo + 1;
@@ -390,7 +410,9 @@ public class NumberTheory {
 	 * 
 	 * @param n
 	 *            positive integer, <code>(n > 0)</code>
+	 *            
 	 * @return the number of totatives of positive integer n
+	 * 
 	 * @author Brandon Bernie
 	 */
 	public static int eulerPhi(int n) {
@@ -408,4 +430,92 @@ public class NumberTheory {
 		
 		return result;
 	}
+	
+
+	/**
+	 * The binary GCD algorithm is an algorithm which computes the greatest
+	 * common divisor of two nonnegative integers. It gains a measure of
+	 * efficiency over the ancient Euclidean algorithm by replacing divisions
+	 * and multiplications with shifts, which are cheaper when operating on the
+	 * binary representation used by modern computers.
+	 * <p>
+	 * 
+	 * <u><b>Algorithm:</b></u> Binary GCD [Stien's Algorithm]<br>
+	 * The algorithm reduces the problem of finding the GCD by repeatedly
+	 * applying these identities:<br>
+	 * <br>
+	 * 
+	 * 1. <code>gcd(0, v) = v</code>, because everything divides zero, and
+	 * <code>v</code> is the largest number that divides <code>v</code>.
+	 * Similarly, <code>gcd(u, 0) = u</code>. <code>gcd(0, 0)</code> is not
+	 * defined.<br>
+	 * 
+	 * 2. If <code>u</code> and <code>v</code> are both even, then
+	 * <code>gcd(u, v) = 2·gcd(u/2, v/2)</code>, because <code>2</code> is a
+	 * common divisor.<br>
+	 * 
+	 * 3. If <code>u</code> is even and <code>v</code> is odd, then
+	 * <code>gcd(u, v) = gcd(u/2, v)</code>, because <code>2</code> is not a
+	 * common divisor. Similarly, if <code>u</code> is odd and <code>v</code> is
+	 * even, then <code>gcd(u, v) = gcd(u, v/2)</code>.<br>
+	 * 
+	 * 4. If <code>u</code> and <code>v</code> are both odd, and
+	 * <code>u = v</code>, then <code>gcd(u, v) = gcd((u-v)/2, v)</code>. If
+	 * both are odd and <code>u < v</code>, then
+	 * <code>gcd(u, v) = gcd((v-u)/2, u)</code>. These are combinations of one
+	 * step of the simple Euclidean algorithm, which uses subtraction at each
+	 * step, and an application of step 3 above. The division by <code>2</code>
+	 * results in an integer because the difference of two odd numbers iseven. <br>
+	 * 
+	 * 5. Repeat steps 3–4 until <code>u = v</code>, or (one more step) until
+	 * <code>u = 0</code>. In either case, the result is <code>(2^k)v</code>,
+	 * where <code>k</code> is the number of common factors of <code>2</code>
+	 * found in step 2. <br>
+	 * 
+	 * @param u
+	 *            positive integer, <code>(u > 0)</code>
+	 * @param v
+	 *            positive integer, <code>(v > 0)</code>
+	 *            
+	 * @return the greatest common divisor of u and v
+	 * 
+	 * @author Brandon Bernie
+	 */
+	public static int gcd(int u, int v)
+	 {
+	     int shift;
+	 
+	     /* GCD(0,x) := x */
+	     if (u == 0 || v == 0)
+	       return u | v;
+	 
+	     /* Let shift := lg K, where K is the greatest power of 2
+	        dividing both u and v. */
+	     for (shift = 0; ((u | v) & 1) == 0; ++shift) {
+	         u >>= 1;
+	         v >>= 1;
+	     }
+	 
+	     while ((u & 1) == 0)
+	       u >>= 1;
+	 
+	     /* From here on, u is always odd. */
+	     do {
+	         while ((v & 1) == 0)  /* Loop X */
+	           v >>= 1;
+	 
+	         /* Now u and v are both odd, so diff(u, v) is even.
+	            Let u = min(u, v), v = diff(u, v)/2. */
+	         if (u < v) {
+	             v -= u;
+	         } else {
+	             int diff = u - v;
+	             u = v;
+	             v = diff;
+	         }
+	         v >>= 1;
+	     } while (v != 0);
+	 
+	     return u << shift;
+	 }
 }
