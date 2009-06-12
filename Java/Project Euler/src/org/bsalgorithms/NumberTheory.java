@@ -416,19 +416,95 @@ public class NumberTheory {
 	 * @author Brandon Bernie
 	 */
 	public static int eulerPhi(int n) {
-		int result = n;
-		
-		for (int i = 2; i * i <= n; i++) {
-			if (n % i == 0)
-				result -= result / i;
-			while (n % i == 0)
-				n /= i;
+		int totient, q, k;
+		if (n > 0) {
+			totient = q = n;
+			if (q % 2 == 0) {
+				totient /= 2;
+				do {
+					q /= 2;
+				} while (q % 2 == 0);
+			}
+			if (q % 3 == 0) {
+				totient = totient * 2 / 3;
+				do {
+					q /= 3;
+				} while (q % 3 == 0);
+			}
+			k = 5;
+			while (k * k <= q) {
+				if (k % 3 != 0 && q % k == 0) {
+					totient = totient * (k - 1) / k;
+					do {
+						q /= k;
+					} while (q % k == 0);
+				}
+				k += 2;
+			}
+			if (q > 1) {
+				totient = totient * (q - 1) / q;
+			}
+			return totient;
 		}
-		
-		if (n > 1)
-			result -= result / n;
-		
-		return result;
+		else 
+			return 0;
+	}
+	
+	/**
+	 * The Möbius function is a number theoretic function defined by:
+	 * <p>
+	 * <code>mobiusMu(n) = 1</code> if <code>n</code> is a square-free positive
+	 * integer with an even number of distinct prime factors.<br>
+	 * <code>mobiusMu(n) = -1</code> if <code>n</code> is a square-free positive
+	 * integer with an odd number of distinct prime factors.<br>
+	 * <code>mobiusMu(n) = 0 </code> if <code>n</code> is not square-free.<br>
+	 * 
+	 * @param n
+	 *            positive integer, <code>(n > 0)</code>
+	 * @return <code>{-1, 0, 1}</code> depending on the factorization of n into
+	 *         prime factors
+	 * 
+	 */
+	public static int mobiusMu(int n){
+		int moebius, q, k;
+
+		if (n > 0) {
+			moebius = 1;
+			q = n;
+			if (q % 2 == 0) {
+				moebius = -moebius;
+				q /= 2;
+				if (q % 2 == 0) {
+					return 0;
+				}
+			}
+			if (q % 3 == 0) {
+				moebius = -moebius;
+				q /= 3;
+				if (q % 3 == 0) {
+					return 0;
+				}
+			}
+			k = 5;
+			while (k * k <= q) {
+				if (k % 3 != 0) {
+					while (q % k == 0) {
+						moebius = -moebius;
+						q /= k;
+						if (q % k == 0) {
+							return 0;
+						}
+					}
+				}
+				k += 2;
+			}
+			if (q > 1) {
+				moebius = -moebius;
+			}
+			return moebius;
+		} else {
+			return 0;
+		}
 	}
 	
 
