@@ -1,4 +1,8 @@
 /*
+ * Author: Brandon Bernie
+ * 
+ * Problem 37
+ * 
  * The number 3797 has an interesting property. Being prime itself, it is
  * possible to continuously remove digits from left to right, and remain prime 
  * t each stage: 
