@@ -19,43 +19,45 @@
 public class PS044 {
 
 	public static void main(String[] args) {
-		int[] p = new int[100001];
+		int[] p = new int[10000];
+		int temp = 1;
 		
 		long start = System.nanoTime();
-		for(int i = 0; i <= 100000; i++)
-			p[i] = Pentagonal(i);
+		for(int i = 1; i < p.length; i++){
+			p[i] = temp;
+			temp = temp + ((i*3) + 1);
+		}
 		
 		for(int i = 1; i < p.length; i++)
 			for(int j = 1; j < i; j++)
-				if(isPentagonal(p[i]+p[j]) && isPentagonal(Math.abs(p[i]-p[j])))
-					System.out.println(Math.abs(Pentagonal(j) - Pentagonal(i)));
-		long stop = System.nanoTime();
-		
-		System.out.println((stop - start)/1000000 + " ms");
-	}
-	
-	static int Pentagonal(int n){
-		return (n*((3*n)-1) )/ 2;
+				if(isPentagonal(p[i]+p[j]) && isPentagonal(p[i]-p[j])){
+					System.out.println(p[i] - p[j]);
+					long stop = System.nanoTime();
+					System.out.println((stop - start)/1000000 + " ms");
+				}	
 	}
 	
 	static boolean isPentagonal(int n){
-	
+		
 		if (n > 0) {
 
-			double a = 3, b = -1, c = n;
-			double real, root1, root2;
+			double a = 3, b = -1, c = -(2 * n);
+			double discriminant, root1, root2;
 
-			real = (Math.pow(b, 2)) - (4 * a * c);
-			root1 = (-b + Math.sqrt(real)) / (2 * a);
-			root2 = (-b - Math.sqrt(real)) / (2 * a);
-
-			if (root1 % 1 == 0) {
-				System.out.println(root1);
-				return true;
-			}
-			if (root2 % 2 == 0) {
-				System.out.println(root2);
-				return true;
+			discriminant = (b * b - 4 * a * c);
+			
+			if(discriminant >= 0){
+				root1 = (-b / 2.0 / a - Math.sqrt(discriminant) / 2.0 / a);
+				root2 = (-b / 2.0 / a + Math.sqrt(discriminant) / 2.0 / a);
+				
+				if (root1 % 1 == 0 && root1 > 0) {
+					//System.out.println(n + " = p[" + root1 + "]");
+					return true;
+				}
+				if (root2 % 1 == 0 && root2 > 0) {
+					//System.out.println(n + " = p[" + root2 + "]");
+					return true;
+				}
 			}
 		} 
 		
