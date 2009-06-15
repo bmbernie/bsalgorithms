@@ -292,6 +292,54 @@ public class NumberTheory {
 
 		return factors;
 	}
+	
+	/**
+	 * For integer <code>n</code>, the function factorInteger returns a list of
+	 * the prime factors of the integer <code>n</code> together with their
+	 * exponents.
+	 * <p>
+	 * <u>Examples:</u> <br>
+	 * <code>factorInteger(2) == [[2,1]]</code> <br>
+	 * <code>factorInteger(8) == [[2,3]]</code> <br>
+	 * <code>factorInteger(12) == [[2,2],[3,1]]</code>
+	 * 
+	 * 
+	 * @param n
+	 *            positive integer, <code>(n > 0)</code>
+	 *            
+	 * @return A list of prime factors for the integer <code>n</code> in
+	 *         [coefficient, exponent] pairs
+	 *         
+	 * @author Brandon Bernie
+	 */
+	public static List<Pair<Long, Long>> factorLongInteger(long n) {
+		List<Pair<Long, Long>> factors = new ArrayList<Pair<Long, Long>>();
+
+		if (n == 0) {
+			factors.add(new Pair<Long, Long>(0L, 1L));
+			return factors;
+		}
+
+		// for each potential factor i
+		for (long i = 2; i <= n / i; i++) {
+			long exponent = 0;
+			
+			// if i is a factor of N, repeatedly divide it out
+			while (n % i == 0) {
+				exponent++;
+				n = n / i;
+			}
+
+			if (exponent > 0)
+				factors.add(new Pair<Long, Long>(i, exponent));
+		}
+		
+		// if biggest factor occurs only once, n > 1
+		if (n > 1)
+			factors.add(new Pair<Long, Long>(n, 1L));
+
+		return factors;
+	}
 
 	/**
 	 * For integer <code>n</code>, the prime counting function,
@@ -417,6 +465,62 @@ public class NumberTheory {
 	 */
 	public static int eulerPhi(int n) {
 		int totient, q, k;
+		if (n > 0) {
+			totient = q = n;
+			if (q % 2 == 0) {
+				totient /= 2;
+				do {
+					q /= 2;
+				} while (q % 2 == 0);
+			}
+			if (q % 3 == 0) {
+				totient = totient * 2 / 3;
+				do {
+					q /= 3;
+				} while (q % 3 == 0);
+			}
+			k = 5;
+			while (k * k <= q) {
+				if (k % 3 != 0 && q % k == 0) {
+					totient = totient * (k - 1) / k;
+					do {
+						q /= k;
+					} while (q % k == 0);
+				}
+				k += 2;
+			}
+			if (q > 1) {
+				totient = totient * (q - 1) / q;
+			}
+			return totient;
+		}
+		else 
+			return 0;
+	}
+	
+	/**
+	 * The totient function <code>phi(n)</code>, also called Euler's totient
+	 * function, is defined as the number of positive integers <code><=</code>
+	 * <code>n</code> that are relatively prime to (i.e., do not contain any
+	 * factor in common with) <code>n</code>, where 1 is counted as being
+	 * relatively prime to all numbers. Since a number less than or equal to and
+	 * relatively prime to a given number is called a totative, the totient
+	 * function <code>euelerPhi(n)</code> can be simply defined as the number of
+	 * totatives of <code>n</code>.
+	 * <p>
+	 * <u>Example:</u><br>
+	 * There are eight totatives of 24: (1, 5, 7, 11, 13, 17, 19, and 23) <br>
+	 * <code>eulerPhi(24) == 8</code>.
+	 * 
+	 * @param n
+	 *            positive integer, <code>(n > 0)</code>
+	 *            
+	 * @return the number of totatives of positive integer n
+	 * 
+	 * @author Brandon Bernie
+	 */
+	public static long eulerPhi(long n) {
+		long totient, q, k;
 		if (n > 0) {
 			totient = q = n;
 			if (q % 2 == 0) {
