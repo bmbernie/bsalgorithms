@@ -15,6 +15,7 @@ import org.bsalgorithms.Timing;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
+import org.apache.commons.math.util.MathUtils;
 
 public class PS041 {
 
@@ -23,7 +24,6 @@ public class PS041 {
 		List<Integer> primeList = NumberTheory.generatePrimes(7654321);
 		HashSet<Integer> primeHT = new HashSet<Integer>(primeList.size());
 		primeHT.addAll(primeList);
-		
 		Timing t = new Timing();
 		int max = 0;
 		
@@ -37,7 +37,7 @@ public class PS041 {
 			for(int i = 1; i <= f; i++)
 				digits.add(i);
 			
-			for(int p = 1; p < qfactorial(f); p++){
+			for(int p = 1; p < MathUtils.factorial(f); p++){
 				int n = digits.size();
 				int i = n - 1;
 				int j;
@@ -86,14 +86,5 @@ public class PS041 {
 			number += d.get(i) * Math.pow(10, d.size()-i-1);
 		
 		return number;
-	}
-	
-	public static int qfactorial(int n){
-		int factorial = 1;
-		
-		for(int i = 2; i <= n; i++)
-			factorial *= i;
-		
-		return factorial;
 	}
 }
