@@ -9,22 +9,26 @@
  * 600851475143 ?
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.*;
+import java.util.List;
 
 public class PS003 {
 
 	public static void main(String[] args) {
+        Timing t = new Timing();
 
-		long number = 600851475143L;
-		long max = 0;
-		long start = System.currentTimeMillis();
-		for (long x = 3, end = (int) Math.sqrt(number); x <= end; x += 2)
-			if (number % x == 0)
-				if (NumberTheory.isPrime(x))
-					if (x > max)
-						max = x;
-		long stop = System.currentTimeMillis();
+        t.start();
+        List<Pair<Long, Long>> factors = NumberTheory.factorLongInteger(600851475143L);
+        t.stop();
+		System.out.println(factors + " " + t);
 
-		System.out.println(max + " " + (stop - start) + " ms");
-	}
+        t.start();
+        long N = 600851475143L;
+        for (long i = 2; i <= N/i; i++)
+            while (N % i == 0)
+                N = N / i;
+        t.stop();
+        System.out.println(N + " " + t.diff());
+
+    }
 }

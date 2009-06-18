@@ -341,7 +341,7 @@ public class NumberTheory {
 		}
 
 		// for each potential factor i
-		for (long i = 2; i <= n / i; i++) {
+		for (long i = 2; i <= n/i; i++) {
 			long exponent = 0;
 			
 			// if i is a factor of N, repeatedly divide it out
@@ -575,7 +575,7 @@ public class NumberTheory {
 	}
 	
 	/**
-	 * The Möbius function is a number theoretic function defined by:
+	 * The Mï¿½bius function is a number theoretic function defined by:
 	 * <p>
 	 * <code>mobiusMu(n) = 1</code> if <code>n</code> is a square-free positive
 	 * integer with an even number of distinct prime factors.<br>
@@ -651,7 +651,7 @@ public class NumberTheory {
 	 * defined.<p>
 	 * 
 	 * 2. If <code>u</code> and <code>v</code> are both even, then
-	 * <code>gcd(u, v) = 2·gcd(u/2, v/2)</code>, because <code>2</code> is a
+	 * <code>gcd(u, v) = 2ï¿½gcd(u/2, v/2)</code>, because <code>2</code> is a
 	 * common divisor.<p>
 	 * 
 	 * 3. If <code>u</code> is even and <code>v</code> is odd, then
@@ -668,7 +668,7 @@ public class NumberTheory {
 	 * results in an integer because the difference of two odd numbers iseven.
 	 * <p>
 	 * 
-	 * 5. Repeat steps 3–4 until <code>u=v</code>, or (one more step) until
+	 * 5. Repeat steps 3ï¿½4 until <code>u=v</code>, or (one more step) until
 	 * <code>u = 0</code>. In either case, the result is <code>(2^k)v</code>,
 	 * where <code>k</code> is the number of common factors of <code>2</code>
 	 * found in step 2. <br>
