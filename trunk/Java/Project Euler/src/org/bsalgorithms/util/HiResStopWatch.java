@@ -20,8 +20,6 @@
 
 package org.bsalgorithms.util;
 
-import org.apache.commons.lang.time.DurationFormatUtils;
-
 /**
  * <p>
  * <code>HiResStopWatch</code> provides a convenient API for high resolution
@@ -56,7 +54,6 @@ import org.apache.commons.lang.time.DurationFormatUtils;
  * </p>
  * 
  * @author Brandon Bernie
- * @since 2.0
  * @version $Id: HiResStopWatch.java 5135648 2009-06-19T06:56Z bmbernie $
  */
 public class HiResStopWatch {
