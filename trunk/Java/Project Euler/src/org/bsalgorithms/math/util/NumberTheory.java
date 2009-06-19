@@ -18,7 +18,7 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-package org.bsalgorithms;
+package org.bsalgorithms.math.util;
 
 import java.util.ArrayList;
 import java.util.List;

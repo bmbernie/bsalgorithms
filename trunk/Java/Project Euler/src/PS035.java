@@ -12,7 +12,8 @@
  * How many circular primes are there below one million?
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.List;

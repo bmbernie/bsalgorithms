@@ -19,7 +19,8 @@
  */
 
 import java.util.List;
-import org.bsalgorithms.NumberTheory;
+
+import org.bsalgorithms.math.util.NumberTheory;
 
 public class PS243 {
 

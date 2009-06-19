@@ -8,7 +8,7 @@
  * Find the sum of all the primes below two million.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
 
 import java.util.List;
 

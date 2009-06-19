@@ -24,7 +24,8 @@
  * starting with n = 0.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.util.List;
 
 public class PS027 {

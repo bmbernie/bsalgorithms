@@ -21,7 +21,8 @@
  * recurring cycle in its decimal fraction part.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.util.List;
 
 public class PS026 {

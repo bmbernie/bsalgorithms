@@ -21,7 +21,8 @@
  * of two abundant numbers.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.util.LinkedList;
 
 public class PS023 {
