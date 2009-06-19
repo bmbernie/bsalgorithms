@@ -1,4 +1,4 @@
-package org.bsalgorithms;
+package org.bsalgorithms.util;
 
 public class Pair<T,U> {
 	private T first;

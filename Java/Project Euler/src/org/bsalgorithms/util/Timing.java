@@ -18,7 +18,7 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-package org.bsalgorithms;
+package org.bsalgorithms.util;
 
 /**
  * Very simple timer for code generation time statistics.

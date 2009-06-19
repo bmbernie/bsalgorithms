@@ -10,6 +10,9 @@
  */
 
 import org.bsalgorithms.*;
+import org.bsalgorithms.util.Pair;
+import org.bsalgorithms.util.Timing;
+
 import java.util.List;
 
 public class PS003 {
