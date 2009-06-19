@@ -10,7 +10,7 @@
  * What is the largest n-digit pandigital prime that exists?
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
 import org.bsalgorithms.util.Timing;
 
 import java.util.ArrayList;

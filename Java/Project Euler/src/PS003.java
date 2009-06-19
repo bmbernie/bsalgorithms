@@ -9,7 +9,7 @@
  * 600851475143 ?
  */
 
-import org.bsalgorithms.*;
+import org.bsalgorithms.math.util.NumberTheory;
 import org.bsalgorithms.util.Pair;
 import org.bsalgorithms.util.Timing;
 

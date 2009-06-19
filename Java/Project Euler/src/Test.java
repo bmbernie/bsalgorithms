@@ -4,7 +4,7 @@
  * Driver for various NumberTheory functions
  */
 
-import org.bsalgorithms.*;
+import org.bsalgorithms.math.util.NumberTheory;
 import org.bsalgorithms.util.Pair;
 import org.bsalgorithms.util.Timing;
 

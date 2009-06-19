@@ -9,7 +9,7 @@
  * What is the 10001th prime number?
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
 
 public class PS007 {
 

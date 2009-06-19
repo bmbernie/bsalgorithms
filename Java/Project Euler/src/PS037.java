@@ -15,7 +15,8 @@
  * to right and right to left.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.util.List;
 
 public class PS037 {

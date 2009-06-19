@@ -16,7 +16,8 @@
  * Evaluate the sum of all the amicable numbers under 10000.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Integer;

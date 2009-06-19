@@ -8,7 +8,7 @@
  * Find the 100,000^(th) such number.
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
 
 public class PS248 {
 

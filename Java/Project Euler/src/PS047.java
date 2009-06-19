@@ -18,7 +18,7 @@
  * factors. What is the first of these numbers?
  */
 
-import org.bsalgorithms.NumberTheory;
+import org.bsalgorithms.math.util.NumberTheory;
 
 
 public class PS047 {

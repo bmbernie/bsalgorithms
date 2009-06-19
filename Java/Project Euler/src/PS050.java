@@ -16,7 +16,7 @@
  * consecutive primes?
  */
 
-import org.bsalgorithms.*;
+import org.bsalgorithms.math.util.NumberTheory;
 
 import java.util.List;
 
