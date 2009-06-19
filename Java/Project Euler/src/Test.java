@@ -13,28 +13,28 @@ public class Test {
 	public static void main(String[] args) {
         Timing t = new Timing();
 
-        t.start();
-        bigFactorial(40000);
-        t.stop();
-        System.out.println(t);
-
-        t.start();
-        bigFactorial2(40000);
-        t.stop();
-        System.out.println(t);
-
-        t.start();
-        bigFactorial3(40000);
-        t.stop();
-        System.out.println(t);
+//        t.start();
+//        bigFactorial(40000);
+//        t.stop();
+//        System.out.println(t);
+//
+//        t.start();
+//        bigFactorial2(40000);
+//        t.stop();
+//        System.out.println(t);
+//
+//        t.start();
+//        bigFactorial3(40000);
+//        t.stop();
+//        System.out.println(t);
         
         t.start();
         bigFactorial4(40000);
         t.stop();
         System.out.println(t);
 
-        if(bigFactorial3(40000).toString().equals(bigFactorial4(40000).toString()))
-            System.out.println("equal");
+       // if(bigFactorial3(40000).toString().equals(bigFactorial4(40000).toString()))
+       //     System.out.println("equal");
     }
 
 	public static BigInteger bigFactorial4(final int n){

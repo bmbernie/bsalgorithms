@@ -23,8 +23,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import org.bsalgorithms.Timing;
-import org.bsalgorithms.NumberTheory;
-
 
 public class PS043 {
 

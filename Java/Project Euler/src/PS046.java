@@ -20,25 +20,11 @@
  * 
  */
 
-import org.bsalgorithms.NumberTheory;
-import java.util.List;
-
 public class PS046 {
 
 
 	public static void main(String[] args) {
 		
-		int i = 35;
-		while(true){
-			if(NumberTheory.isPrime(i))
-				continue;
-			
-			List<Integer> primes = NumberTheory.generatePrimes(i);
-			
-			
-			
-			i+=2;
-		}
 	}
 
 }
