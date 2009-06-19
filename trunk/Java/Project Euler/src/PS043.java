@@ -22,7 +22,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import org.bsalgorithms.Timing;
+
+import org.bsalgorithms.util.Timing;
 
 public class PS043 {
 

@@ -23,6 +23,8 @@ package org.bsalgorithms;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bsalgorithms.util.Pair;
+
 /**
  * The NumberTheory class provides a set of static methods which lie in the
  * mathematical domain of number theory.

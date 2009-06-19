@@ -11,7 +11,8 @@
  */
 
 import org.bsalgorithms.NumberTheory;
-import org.bsalgorithms.Timing;
+import org.bsalgorithms.util.Timing;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
