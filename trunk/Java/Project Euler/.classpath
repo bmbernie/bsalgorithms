@@ -2,5 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Brandon/workspace/math/target/commons-math-2.0-SNAPSHOT.jar" sourcepath="C:/Documents and Settings/Brandon/workspace/math/src/java/">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Documents and Settings/Brandon/workspace/math/target/site/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Brandon/workspace/commons/Lang/commons-lang-2.4.jar" sourcepath="C:/Documents and Settings/Brandon/workspace/commons/Lang/commons-lang-2.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Documents and Settings/Brandon/workspace/commons/Lang/commons-lang-2.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
