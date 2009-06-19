@@ -6,8 +6,10 @@ package project_euler;
  */
 
 import org.bsalgorithms.math.util.NumberTheory;
+import org.bsalgorithms.util.HiResStopWatch;
 import org.bsalgorithms.util.Pair;
 import org.bsalgorithms.util.Timing;
+
 
 import java.math.BigInteger;
 import java.util.List;
@@ -15,7 +17,8 @@ import java.util.List;
 public class Test {
 	
 	public static void main(String[] args) {
-        Timing t = new Timing();
+        HiResStopWatch t = new HiResStopWatch();
+        Timing h = new Timing();
 
 //        t.start();
 //        bigFactorial(40000);
@@ -32,10 +35,24 @@ public class Test {
 //        t.stop();
 //        System.out.println(t);
         
+        h.start();
         t.start();
         bigFactorial4(40000);
+        h.stop();
         t.stop();
+        
+        long l = 237222333333L;
+        long ns,ms,s,m;
+        
+        ns = l%1000000;
+        ms = l / 1000000 % 1000;
+        s = l / 1000000000L % 60;
+        m = l / 1000000000L / 60;
+        
+        
+        System.out.println(m+":min "+s+"s "+ms+"ms "+ns+"ns ");
         System.out.println(t);
+        System.out.println(h);
 
        // if(bigFactorial3(40000).toString().equals(bigFactorial4(40000).toString()))
        //     System.out.println("equal");
