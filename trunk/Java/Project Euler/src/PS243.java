@@ -24,9 +24,9 @@ import org.bsalgorithms.NumberTheory;
 public class PS243 {
 
 	public static void main(String[] args) {
-		long start, stop;
-		final int PCHUNK = 3000000;
-		int chunk = 0;
+//		long start, stop;
+//		final int PCHUNK = 3000000;
+//		int chunk = 0;
 		double tollerance = 15499d / 94744d;
 		
 		List<Integer> primes = NumberTheory.generatePrimes(50000000);

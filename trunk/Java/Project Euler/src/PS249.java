@@ -10,23 +10,10 @@
  * Enter the rightmost 16 digits as your answer.
  */
 
-import org.bsalgorithms.NumberTheory;
-import java.math.BigInteger;
-import java.util.List;
-import java.util.HashSet;
-
 public class PS249 {
 
 	public static void main(String[] args) {
-		List<Integer> S = NumberTheory.generatePrimes(5000);
-		List<Integer> pList = NumberTheory.generatePrimes(1548136);
-		HashSet<Integer> primeHashSet = new HashSet<Integer>(pList.size());
-		BigInteger sum = BigInteger.ZERO;
 		
-		primeHashSet.addAll(pList);
-		
-		
-	
 	}
 
 }
