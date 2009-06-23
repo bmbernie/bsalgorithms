@@ -576,7 +576,7 @@ public class NumberTheory {
 	}
 	
 	/**
-	 * The M�bius function is a number theoretic function defined by:
+	 * The Mobius function is a number theoretic function defined by:
 	 * <p>
 	 * <code>mobiusMu(n) = 1</code> if <code>n</code> is a square-free positive
 	 * integer with an even number of distinct prime factors.<br>
